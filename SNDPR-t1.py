@@ -30,13 +30,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 3. Display the Logo
-LOGO_FILENAME = "SNDPRlogo.png"  # <-- Change this to your logo's file name
+# --- UPDATE THIS SECTION IN YOUR CODE ---
+
+# 1. Update the name to match your exact file (add .png or .jpg depending on your file type)
+LOGO_FILENAME = "SNDPRlogo.png"  
 
 if os.path.exists(LOGO_FILENAME):
     st.image(LOGO_FILENAME, width=150) 
 else:
-   st.warning("Logo image 'SNDPRlogo.png' not found in the repository folder.")
+    # Safe text warning without any dangerous string variables
+    st.warning("Logo image 'SNDPRlogo.png' not found in the repository folder.")
 
 # ----------------------------------------
 
