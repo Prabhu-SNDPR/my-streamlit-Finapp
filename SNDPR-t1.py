@@ -4,45 +4,80 @@ import random
 import string
 import os
 
-# --- ADD THIS RIGHT AFTER YOUR IMPORTS ---
-
-# 1. Page Config (Make sure this is the VERY FIRST streamlit command)
+# ==============================================================================
+# 1. PAGE CONFIGURATION & CORRECTIONS (MUST BE FIRST)
+# ==============================================================================
 st.set_page_config(
-    page_title="My Streamlit App",
-    page_icon="🎯",
+    page_title="SNDPR Groups",
+    page_icon="💼",
     layout="centered"
 )
 
-# 2. Styling (Color and font size)
+# ==============================================================================
+# 2. CUSTOM MODERN TECH-THEME STYLING (CSS)
+# ==============================================================================
 st.markdown(
     """
     <style>
-    h1 {
-        color: #2E4053 !important;  /* Change this hex code to match your logo */
-        font-size: 38px !important;
+    /* Global Background and Main Font Styling */
+    .stApp {
+        background-color: #F8FAFC !important;
     }
-    p, span, label {
-        color: #2C3E50 !important;
-        font-size: 18px !important;
+    
+    /* Typography Overrides */
+    h1 {
+        color: #1E3A8A !important;  /* Modern deep tech blue */
+        font-family: 'Segoe UI', Inter, sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 36px !important;
+        letter-spacing: -0.5px;
+    }
+    h2, h3 {
+        color: #0F172A !important;
+        font-family: 'Segoe UI', Inter, sans-serif !important;
+        font-weight: 600 !important;
+    }
+    p, span, label, .stRadio label {
+        color: #334155 !important;   /* Accessible neutral slate text */
+        font-size: 16px !important;
+    }
+    
+    /* Modern Card Layouts for Forms */
+    div[data-testid="stForm"] {
+        background-color: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    }
+    
+    /* Interactive Elements Focus Rings and Accents */
+    div[data-baseweb="select"] > div {
+        border-radius: 8px !important;
+        border-color: #CBD5E1 !important;
+    }
+    input {
+        border-radius: 8px !important;
+    }
+    
+    /* Primary Action Buttons UI */
+    button[kind="primaryFormSubmit"], button[data-testid="baseButton-secondary"] {
+        background-color: #0EA5E9 !important; /* Vibrant Cyan Blue accent */
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.5rem 2rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease-in-out;
+    }
+    button[kind="primaryFormSubmit"]:hover, button[data-testid="baseButton-secondary"]:hover {
+        background-color: #0284C7 !important;
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3) !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
-# --- UPDATE THIS SECTION IN YOUR CODE ---
-
-# 1. Update the name to match your exact file (add .png or .jpg depending on your file type)
-LOGO_FILENAME = "SNDPRlogo.png"  
-
-if os.path.exists(LOGO_FILENAME):
-    st.image(LOGO_FILENAME, width=150) 
-else:
-    # Safe text warning without any dangerous string variables
-    st.warning("Logo image 'SNDPRlogo.png' not found in the repository folder.")
-
-# ----------------------------------------
-
 # --- DATABASE SETUP ---
 def init_db():
     conn = sqlite3.connect("SNDPR-Group.db")
