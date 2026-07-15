@@ -31,7 +31,7 @@ st.markdown(
 )
 
 # 3. Display the Logo
-LOGO_FILENAME = "SNDPR-logo.png"  # <-- Change this to your logo's file name
+LOGO_FILENAME = "SNDPR logo.png"  # <-- Change this to your logo's file name
 
 if os.path.exists(LOGO_FILENAME):
     st.image(LOGO_FILENAME, width=150) 
