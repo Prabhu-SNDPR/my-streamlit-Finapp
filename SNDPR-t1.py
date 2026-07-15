@@ -36,7 +36,7 @@ LOGO_FILENAME = "SNDPR-logo.png"  # <-- Change this to your logo's file name
 if os.path.exists(LOGO_FILENAME):
     st.image(LOGO_FILENAME, width=150) 
 else:
-    st.warning(f"Logo image '{SNDPR-logo}' not found in the repository folder.")
+    st.warning(f"Logo image '{LOGO_FILENAME}' not found in the repository folder.")
 
 # ----------------------------------------
 
