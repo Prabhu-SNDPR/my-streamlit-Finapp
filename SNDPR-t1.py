@@ -2,6 +2,43 @@ import streamlit as st
 import sqlite3
 import random
 import string
+import os
+
+# --- ADD THIS RIGHT AFTER YOUR IMPORTS ---
+
+# 1. Page Config (Make sure this is the VERY FIRST streamlit command)
+st.set_page_config(
+    page_title="My Streamlit App",
+    page_icon="🎯",
+    layout="centered"
+)
+
+# 2. Styling (Color and font size)
+st.markdown(
+    """
+    <style>
+    h1 {
+        color: #2E4053 !important;  /* Change this hex code to match your logo */
+        font-size: 38px !important;
+    }
+    p, span, label {
+        color: #2C3E50 !important;
+        font-size: 18px !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# 3. Display the Logo
+LOGO_FILENAME = "SNDPR-logo.png"  # <-- Change this to your logo's file name
+
+if os.path.exists(LOGO_FILENAME):
+    st.image(LOGO_FILENAME, width=150) 
+else:
+    st.warning(f"Logo image '{SNDPR-logo}' not found in the repository folder.")
+
+# ----------------------------------------
 
 # --- DATABASE SETUP ---
 def init_db():
